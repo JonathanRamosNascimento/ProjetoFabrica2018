@@ -23,5 +23,4 @@ public class InstituicaoService extends AbstractService<Instituicao> {
         }
         throw new CustomDuplicatedException(ExceptionMessageCode.MENSAGEM_REGISTRO_DUPLICADO);
     }
-
 }
