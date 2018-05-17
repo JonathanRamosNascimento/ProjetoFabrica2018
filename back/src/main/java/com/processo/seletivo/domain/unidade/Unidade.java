@@ -1,4 +1,4 @@
-package com.processo.seletivo.domain.instituicao;
+package com.processo.seletivo.domain.unidade;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,23 +9,23 @@ import javax.validation.constraints.Size;
 import java.io.Serializable;
 
 @Entity
-public class Instituicao implements Serializable {
+public class Unidade implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "instituicao_id_seq")
-    @SequenceGenerator(name = "instituicao_id_seq", sequenceName = "instituicao_id_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "unidade_id_seq")
+    @SequenceGenerator(name = "unidade_id_seq", sequenceName = "unidade_id_seq", allocationSize = 1)
     @Column(name = "id")
     @Getter
     @Setter
     private long id;
 
     @NotEmpty
-    @Column(name = "mantenedora")
+    @Column(name = "instituicao")
     @Getter
     @Setter
-    private String mantenedora;
+    private String instituicao;
 
     @NotEmpty
     @Size(max = 80)

@@ -1,4 +1,4 @@
-package com.processo.seletivo.domain.instituicao;
+package com.processo.seletivo.domain.unidade;
 
 import com.processo.seletivo.core.exception.CustomDuplicatedException;
 import com.processo.seletivo.core.exception.ExceptionMessageCode;
@@ -7,19 +7,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class InstituicaoService extends AbstractService<Instituicao> {
+public class UnidadeService extends AbstractService<Unidade> {
 
     @Autowired
-    InstituicaoRepository instituicaoRepository;
+    UnidadeRepository unidadeRepository;
 
     @Override
-    public Instituicao save(Instituicao instituicao){
-        if(instituicao.getId() == 0){
-            if(instituicaoRepository.findByNomeOrCodigo(instituicao.getNome(), instituicao.getCodigo()).isEmpty()){
-                return instituicaoRepository.save(instituicao);
+    public Unidade save(Unidade unidade){
+        if(unidade.getId() == 0){
+            if(unidadeRepository.findByNomeOrCodigo(unidade.getNome(), unidade.getCodigo()).isEmpty()){
+                return unidadeRepository.save(unidade);
             }
-        }else if(instituicaoRepository.findByIdAndNomeOrCodigo(instituicao.getId(), instituicao.getNome(), instituicao.getCodigo()).isEmpty()){
-            return instituicaoRepository.save(instituicao);
+        }else if(unidadeRepository.findByIdAndNomeOrCodigo(unidade.getId(), unidade.getNome(), unidade.getCodigo()).isEmpty()){
+            return unidadeRepository.save(unidade);
         }
         throw new CustomDuplicatedException(ExceptionMessageCode.MENSAGEM_REGISTRO_DUPLICADO);
     }

@@ -1,4 +1,4 @@
-package com.processo.seletivo.domain.instituicao;
+package com.processo.seletivo.domain.unidade;
 
 import com.processo.seletivo.core.controller.ResponseAbstractController;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,35 +7,35 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/instituicao")
-public class InstituicaoController extends ResponseAbstractController {
+@RequestMapping("/unidade")
+public class UnidadeController extends ResponseAbstractController {
 
     @Autowired
-    InstituicaoService instituicaoService;
+    UnidadeService unidadeService;
 
     @GetMapping
     public ResponseEntity<?> findAll() {
-        return jsonResponse(instituicaoService.findAll());
+        return jsonResponse(unidadeService.findAll());
     }
 
     @GetMapping(value = "/{id}")
     public ResponseEntity<?> findById(@PathVariable long id) {
-        return jsonResponse(instituicaoService.findOne(id));
+        return jsonResponse(unidadeService.findOne(id));
     }
 
     @PostMapping
-    public ResponseEntity<?> save(@Validated @RequestBody Instituicao instituicao) {
-        return jsonResponse(instituicaoService.save(instituicao));
+    public ResponseEntity<?> save(@Validated @RequestBody Unidade unidade) {
+        return jsonResponse(unidadeService.save(unidade));
     }
 
     @PutMapping
-    public ResponseEntity<?> update(@Validated @RequestBody Instituicao instituicao) {
-        return jsonResponse(instituicaoService.save(instituicao));
+    public ResponseEntity<?> update(@Validated @RequestBody Unidade unidade) {
+        return jsonResponse(unidadeService.save(unidade));
     }
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> delete(@PathVariable long id) {
-        instituicaoService.delete(id);
+        unidadeService.delete(id);
         return jsonResponse(null);
     }
 

@@ -102,7 +102,7 @@ public class Mantenedora implements Serializable{
 //    @OneToMany(fetch = FetchType.LAZY, mappedBy = "mantenedora")
 //    @Getter
 //    @Setter
-//    private List<Instituicao> instituicoes;
+//    private List<Unidade> instituicoes;
 //
 //    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = true)
 //    @JoinColumn(name = "arquivo_id", referencedColumnName = "id")
