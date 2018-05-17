@@ -24,11 +24,11 @@ export class UnidadeListComponent implements OnInit {
 
   selectedUnidade: Unidade;
   selectedIndex: number;
-  Unidades: Unidade[];
+  unidades: Unidade[];
 
   constructor(
     private modalService: BsModalService,
-    public UnidadeService: UnidadeService
+    public unidadeService: UnidadeService
   ) { }
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class UnidadeListComponent implements OnInit {
     // this.layout.title = 'Lista de unidades';
     this.dtOptions = DATATABLE_OPTIONS;
 
-    this.UnidadeService.findAll()
+    this.unidadeService.findAll()
       .subscribe(unidades => {
         this.unidades = unidades;
         this.dtTrigger.next();
