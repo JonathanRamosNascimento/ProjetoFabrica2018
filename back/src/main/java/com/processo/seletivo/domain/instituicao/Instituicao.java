@@ -1,5 +1,6 @@
 package com.processo.seletivo.domain.instituicao;
 
+import com.processo.seletivo.domain.mantedora.Mantenedora;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -96,4 +97,5 @@ public class Instituicao implements Serializable {
     @Getter
     @Setter
     private String municipio;
+
 }

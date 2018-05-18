@@ -1,13 +1,14 @@
 package com.processo.seletivo.domain.mantedora;
 
+import com.processo.seletivo.domain.instituicao.Instituicao;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Mantenedora implements Serializable{
@@ -92,21 +93,19 @@ public class Mantenedora implements Serializable{
     @Setter
     private String municipio;
 
-//    @Valid
-//    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    @JoinColumn(name = "endereco_id", referencedColumnName = "id")
-//    @Getter
-//    @Setter
-//    private Endereco endereco;
-//
-//    @OneToMany(fetch = FetchType.LAZY, mappedBy = "mantenedora")
-//    @Getter
-//    @Setter
-//    private List<Unidade> instituicoes;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "mantenedora")
+    @Getter
+    @Setter
+    private List<Instituicao> instituicoes;
+
+
+
 //
 //    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = true)
 //    @JoinColumn(name = "arquivo_id", referencedColumnName = "id")
 //    @Getter
 //    @Setter
 //    private Arquivo arquivo;
+
 }
