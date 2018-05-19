@@ -22,11 +22,12 @@ public class Instituicao implements Serializable {
     @Setter
     private long id;
 
-    @NotEmpty
     @Column(name = "mantenedora")
     @Getter
     @Setter
-    private String mantenedora;
+    @ManyToOne
+    @JoinColumn(name = "mantenedora_id_seq")
+    private Mantenedora mantenedora;
 
     @NotEmpty
     @Size(max = 80)
