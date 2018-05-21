@@ -3,12 +3,13 @@
 
     <div class="panel-body">
       <div class="row">
-        <p>Selecione a mantenedora:</p>
-        <div>
-          <select>
-            <option value="mantenedora">{{ mantenedoras }}}</option>
-          </select>
-        </div>
+        <div class="col-xs-4">
+          <input-container label="Mantenedora"><br>
+            <select formControlName="mantenedora">
+              <option *ngFor="let m of mantenedoras" value="{{m.nome}}">{{ m.nome }}</option>
+            </select>
+          </input-container>
+        </div><br>
 
         <div class="col-xs-4">
           <input-container label="Nome">
@@ -47,9 +48,13 @@
         </div>
 
         <div class="col-xs-4">
-          <input-container label="Pais">
-          <input type="select" class="form-control" placeholder="País" formControlName="pais" autocomplete="off">
-          </input-container>
+            <input-container label="País"><br>
+              <select formControlName="pais">
+                <option value="Brasil">Brasil</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Chile">Chile</option>
+              </select>
+            </input-container>
         </div>
 
         <div class="col-xs-4">
@@ -59,15 +64,23 @@
         </div>
 
         <div class="col-xs-4">
-          <input-container label="Provincia">
-            <input type="text" class="form-control" placeholder="Provincia" formControlName="provincia" autocomplete="off">
-          </input-container>
+            <input-container label="Provincia"><br>
+              <select formControlName="provincia">
+                <option value="GO">Goiás</option>
+                <option value="TO">Tocantins</option>
+                <option value="PA">Pará</option>
+              </select>
+            </input-container>
         </div>
 
         <div class="col-xs-4">
-          <input-container label="Municipio">
-          <input type="text" class="form-control" placeholder="Municipio" formControlName="municipio" autocomplete="off">
-          </input-container>
+            <input-container label="Municipio"><br>
+              <select formControlName="municipio">
+                <option value="Anapolis">Anápolis</option>
+                <option value="Goiania">Goiania</option>
+                <option value="Ceres">Ceres</option>
+              </select>
+            </input-container>
         </div>
 
       </div>

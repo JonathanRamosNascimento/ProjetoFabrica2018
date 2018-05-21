@@ -50,17 +50,17 @@ export class InstituicaoFormComponent implements OnInit {
     /* Reactive Forms */
     this.instituicaoForm = this.builder.group({
       id:[],
-      mantenedora: [null, [Validators.required, Validators.maxLength(80)]],
+      mantenedora:[null,Validators.required],
       nome: [null, [Validators.required, Validators.maxLength(80)]],
       codigo: [null, [Validators.required, Validators.maxLength(3)]],
       bairro: [null, [Validators.required, Validators.maxLength(50)]],
       logradouro: [null, [Validators.required, Validators.maxLength(50)]],
       numero: [null, [Validators.required, Validators.maxLength(50)]],
       caixaPostal: [null, [Validators.required, Validators.maxLength(50)]],
-      pais: [null, [Validators.required, Validators.maxLength(50)]],
+      pais: [null,Validators.required],
       numeroFiscal: [null, [Validators.required, Validators.maxLength(20)]],
-      provincia: [null, [Validators.required, Validators.maxLength(50)]],
-      municipio: [null, [Validators.required, Validators.maxLength(50)]]
+      provincia: [null,Validators.required],
+      municipio: [null,Validators.required]
       
       
       

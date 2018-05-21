@@ -1,3 +1,4 @@
+import { MantenedoraService } from './../mantenedora/mantenedora.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -41,7 +42,8 @@ import { InstituicaoListComponent } from "./instituicao-list/instituicao-list.co
   ],
   providers: [
     // services
-    InstituicaoService
+    InstituicaoService,
+    MantenedoraService
   ]
 })
 export class InstituicaoModule { }
