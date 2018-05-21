@@ -70,8 +70,6 @@ public class Instituicao implements Serializable {
     @Setter
     private String caixaPostal;
 
-    @NotEmpty
-    @Size(max = 80)
     @Column(name = "pais")
     @Getter
     @Setter
@@ -84,15 +82,11 @@ public class Instituicao implements Serializable {
     @Setter
     private String numeroFiscal;
 
-    @NotEmpty
-    @Size(max = 80)
     @Column(name = "provincia")
     @Getter
     @Setter
     private String provincia;
 
-    @NotEmpty
-    @Size(max = 80)
     @Column(name = "municipio")
     @Getter
     @Setter
