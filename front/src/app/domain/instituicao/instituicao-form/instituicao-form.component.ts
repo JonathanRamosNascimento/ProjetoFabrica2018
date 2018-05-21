@@ -1,3 +1,5 @@
+import { MantenedoraService } from './../../mantenedora/mantenedora.service';
+import { Mantenedora } from './../../mantenedora/mantenedora';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -26,12 +28,18 @@ export class InstituicaoFormComponent implements OnInit {
     private builder: FormBuilder,
     private imagem: FormBuilder,
     public instituicaoService: InstituicaoService,
+    public mantenedoraService: MantenedoraService,
 
   ) { }
 
-  ngOnInit() {
+  mantenedoras: Mantenedora[];
 
+  ngOnInit() {
     this.instituicao = new Instituicao();
+
+    this.mantenedoraService.findAll().subscribe(mantenedoras =>{
+      this.mantenedoras = mantenedoras;
+    });
 
     /* Obter o `ID` passado por parâmetro na URL */
     this.instituicao.id = this.route.snapshot.params['id'];
@@ -42,7 +50,7 @@ export class InstituicaoFormComponent implements OnInit {
     /* Reactive Forms */
     this.instituicaoForm = this.builder.group({
       id:[],
-      mantenedora: [null,[Validators.required, Validators.maxLength(80)]],
+      mantenedora: [null, [Validators.required, Validators.maxLength(80)]],
       nome: [null, [Validators.required, Validators.maxLength(80)]],
       codigo: [null, [Validators.required, Validators.maxLength(3)]],
       bairro: [null, [Validators.required, Validators.maxLength(50)]],

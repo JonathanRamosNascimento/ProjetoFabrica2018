@@ -22,7 +22,6 @@ public class Instituicao implements Serializable {
     @Setter
     private long id;
 
-    @Column(name = "mantenedora")
     @Getter
     @Setter
     @ManyToOne
