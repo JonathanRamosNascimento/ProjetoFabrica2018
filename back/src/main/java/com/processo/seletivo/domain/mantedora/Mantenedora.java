@@ -65,8 +65,6 @@ public class Mantenedora implements Serializable{
     @Setter
     private String caixaPostal;
 
-    @NotEmpty
-    @Size(max = 80)
     @Column(name = "pais")
     @Getter
     @Setter
@@ -79,15 +77,11 @@ public class Mantenedora implements Serializable{
     @Setter
     private String numeroFiscal;
 
-    @NotEmpty
-    @Size(max = 80)
     @Column(name = "provincia")
     @Getter
     @Setter
     private String provincia;
 
-    @NotEmpty
-    @Size(max = 80)
     @Column(name = "municipio")
     @Getter
     @Setter
@@ -98,14 +92,5 @@ public class Mantenedora implements Serializable{
     @Getter
     @Setter
     private List<Instituicao> instituicoes;
-
-
-
-//
-//    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = true)
-//    @JoinColumn(name = "arquivo_id", referencedColumnName = "id")
-//    @Getter
-//    @Setter
-//    private Arquivo arquivo;
 
 }

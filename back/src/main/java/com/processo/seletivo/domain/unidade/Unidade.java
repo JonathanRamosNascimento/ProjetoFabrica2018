@@ -1,5 +1,6 @@
 package com.processo.seletivo.domain.unidade;
 
+import com.processo.seletivo.domain.instituicao.Instituicao;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -21,11 +22,9 @@ public class Unidade implements Serializable {
     @Setter
     private long id;
 
-    @NotEmpty
-    @Column(name = "instituicao")
-    @Getter
-    @Setter
-    private String instituicao;
+    @ManyToOne
+    @JoinColumn(name = "instituicao_id_seq")
+    private Instituicao instituicao;
 
     @NotEmpty
     @Size(max = 80)
@@ -69,8 +68,6 @@ public class Unidade implements Serializable {
     @Setter
     private String caixaPostal;
 
-    @NotEmpty
-    @Size(max = 80)
     @Column(name = "pais")
     @Getter
     @Setter
@@ -83,15 +80,11 @@ public class Unidade implements Serializable {
     @Setter
     private String numeroFiscal;
 
-    @NotEmpty
-    @Size(max = 80)
     @Column(name = "provincia")
     @Getter
     @Setter
     private String provincia;
 
-    @NotEmpty
-    @Size(max = 80)
     @Column(name = "municipio")
     @Getter
     @Setter

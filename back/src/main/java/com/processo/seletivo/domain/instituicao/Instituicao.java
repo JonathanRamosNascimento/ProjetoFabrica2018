@@ -1,6 +1,7 @@
 package com.processo.seletivo.domain.instituicao;
 
 import com.processo.seletivo.domain.mantedora.Mantenedora;
+import com.processo.seletivo.domain.unidade.Unidade;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -8,6 +9,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 public class Instituicao implements Serializable {
@@ -22,8 +24,6 @@ public class Instituicao implements Serializable {
     @Setter
     private long id;
 
-    @Getter
-    @Setter
     @ManyToOne
     @JoinColumn(name = "mantenedora_id_seq")
     private Mantenedora mantenedora;
@@ -91,5 +91,10 @@ public class Instituicao implements Serializable {
     @Getter
     @Setter
     private String municipio;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "instituicao")
+    @Getter
+    @Setter
+    private List<Unidade> unidades;
 
 }

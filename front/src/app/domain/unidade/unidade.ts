@@ -1,6 +1,8 @@
+import { Instituicao } from "../instituicao/instituicao";
+
 export class Unidade {
     id: number;
-    instituicao: string;
+    instituicao: Instituicao;
     nome: string;
     codigo: string;
     bairro: string;

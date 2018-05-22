@@ -62,8 +62,6 @@ export class InstituicaoFormComponent implements OnInit {
       provincia: [null,Validators.required],
       municipio: [null,Validators.required]
       
-      
-      
     }, {});
 
     // Se existir `ID` realiza busca para trazer os dados

@@ -1,3 +1,5 @@
+import { InstituicaoService } from './../../instituicao/instituicao.service';
+import { Instituicao } from './../../instituicao/instituicao';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -26,12 +28,18 @@ export class UnidadeFormComponent implements OnInit {
     private builder: FormBuilder,
     private imagem: FormBuilder,
     public unidadeService: UnidadeService,
+    public instituicaoService: InstituicaoService,
 
   ) { }
 
-  ngOnInit() {
+  instituicoes: Instituicao[];
 
+  ngOnInit() {
     this.unidade = new Unidade();
+
+    this.instituicaoService.findAll().subscribe(instituicoes=>{
+      this.instituicoes = instituicoes;
+    });
 
     /* Obter o `ID` passado por parâmetro na URL */
     this.unidade.id = this.route.snapshot.params['id'];
@@ -42,19 +50,17 @@ export class UnidadeFormComponent implements OnInit {
     /* Reactive Forms */
     this.unidadeForm = this.builder.group({
       id:[],
-      instituicao: [null,[Validators.required, Validators.maxLength(80)]],
+      instituicao: [null,Validators.required],
       nome: [null, [Validators.required, Validators.maxLength(80)]],
       codigo: [null, [Validators.required, Validators.maxLength(3)]],
       bairro: [null, [Validators.required, Validators.maxLength(50)]],
       logradouro: [null, [Validators.required, Validators.maxLength(50)]],
       numero: [null, [Validators.required, Validators.maxLength(50)]],
       caixaPostal: [null, [Validators.required, Validators.maxLength(50)]],
-      pais: [null, [Validators.required, Validators.maxLength(50)]],
+      pais: [null,Validators.required],
       numeroFiscal: [null, [Validators.required, Validators.maxLength(20)]],
-      provincia: [null, [Validators.required, Validators.maxLength(50)]],
-      municipio: [null, [Validators.required, Validators.maxLength(50)]]
-      
-      
+      provincia: [null,Validators.required],
+      municipio: [null,Validators.required]
       
     }, {});
 

@@ -42,10 +42,14 @@
         </div>
 
         <div class="col-xs-4">
-          <input-container label="Pais">
-          <input type="select" class="form-control" placeholder="País" formControlName="pais" autocomplete="off">
+          <input-container label="País"><br>
+            <select formControlName="pais" class="form-control">
+              <option value="Brasil">Brasil</option>
+              <option value="Argentina">Argentina</option>
+              <option value="Chile">Chile</option>
+            </select>
           </input-container>
-        </div>
+      </div>
 
         <div class="col-xs-4">
           <input-container label="NumeroFiscal">
@@ -54,16 +58,24 @@
         </div>
 
         <div class="col-xs-4">
-          <input-container label="Provincia">
-            <input type="text" class="form-control" placeholder="Provincia" formControlName="provincia" autocomplete="off">
+          <input-container label="Provincia"><br>
+            <select formControlName="provincia" class="form-control">
+              <option value="GO">Goiás</option>
+              <option value="TO">Tocantins</option>
+              <option value="PA">Pará</option>
+            </select>
           </input-container>
-        </div>
+      </div>
 
-        <div class="col-xs-4">
-          <input-container label="Municipio">
-          <input type="text" class="form-control" placeholder="Municipio" formControlName="municipio" autocomplete="off">
-          </input-container>
-        </div>
+      <div class="col-xs-4">
+        <input-container label="Municipio"><br>
+          <select formControlName="municipio" class="form-control">
+            <option value="Anapolis">Anápolis</option>
+            <option value="Goiania">Goiania</option>
+            <option value="Ceres">Ceres</option>
+          </select>
+        </input-container>
+    </div>
 
       </div>
     </div>

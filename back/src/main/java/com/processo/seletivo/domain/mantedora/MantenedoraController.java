@@ -38,6 +38,4 @@ public class MantenedoraController extends ResponseAbstractController {
         mantenedoraService.delete(id);
         return jsonResponse(null);
     }
-
-
 }
