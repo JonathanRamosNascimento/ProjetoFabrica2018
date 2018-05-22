@@ -6,9 +6,11 @@
       <div class="row">
 
           <div class="col-xs-6">
-            <input-container label="Mantenedora">
-            <input type="text" class="form-control" formControlName="mantenedora" >
-            </input-container>
+            <input-container label="Mantenedora"><br>
+            <select formControlName="mantenedora" class="form-control" [compareWith]="compareFn">
+              <option  *ngFor="let m of mantenedoras" [ngValue]="m">{{ m.codigo }}</option>
+            </select>
+          </input-container>
           </div>
 
         <div class="col-xs-6">

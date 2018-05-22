@@ -60,7 +60,7 @@ export class InstituicaoFormComponent implements OnInit {
       pais: [null,Validators.required],
       numeroFiscal: [null, [Validators.required, Validators.maxLength(20)]],
       provincia: [null,Validators.required],
-      municipio: [null,Validators.required]
+      municipio: [null,Validators.required],
       
     }, {});
 
@@ -71,6 +71,10 @@ export class InstituicaoFormComponent implements OnInit {
           this.instituicaoForm.patchValue(instituicao);
         });
     }
+  }
+
+  compareFn(c1: any, c2: any): boolean {
+    return c1 && c2 ? c1.id === c2.id : c1 === c2;
   }
 
   /* Método para salva instituicao */

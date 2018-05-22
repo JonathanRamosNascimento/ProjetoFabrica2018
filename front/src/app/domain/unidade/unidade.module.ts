@@ -1,3 +1,4 @@
+import { InstituicaoService } from './../instituicao/instituicao.service';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -41,7 +42,8 @@ import { UnidadeListComponent } from "./unidade-list/unidade-list.component";
   ],
   providers: [
     // services
-    UnidadeService
+    UnidadeService,
+    InstituicaoService
   ]
 })
 export class UnidadeModule { }
