@@ -19,18 +19,8 @@
 
             <!-- AQUI -->
             <tr>
-              <th>#ID</th>
-              <th>Instituição</th>
-              <th>Nome</th>
               <th>Código</th>
-              <th>Bairro</th>
-              <th>Logradouro</th>
-              <th>Número</th>
-              <th>Caixa Postal</th>
-              <th>País</th>
-              <th>Numero Fiscal</th>
-              <th>Provincia</th>
-              <th>Municipio</th>
+              <th>Nome</th>
               <th class="no-sort text-center">Ações</th>
             </tr>
 
@@ -39,18 +29,8 @@
 
             <!-- AQUI -->
             <tr *ngFor="let unidade of unidades; let i = index">
-              <td>{{unidade.id}}</td>
-              <td>{{unidade.instituicao}}</td>
-              <td><a [routerLink]="['/unidade/visualizar', unidade.id]">{{unidade.nome}}</a></td>
               <td>{{unidade.codigo}}</td>
-              <td>{{unidade.bairro}}</td>
-              <td>{{unidade.logradouro}}</td>
-              <td>{{unidade.numero}}</td>
-              <td>{{unidade.caixaPostal}}</td>
-              <td>{{unidade.pais}}</td>
-              <td>{{unidade.numeroFiscal}}</td>
-              <td>{{unidade.provincia}}</td>
-              <td>{{unidade.municipio}}</td>
+              <td><a [routerLink]="['/unidade/visualizar', unidade.id]">{{unidade.nome}}</a></td>
               <td class="text-center">
                 <a class="btn btn-default" rel="tooltip" data-placement="top" [routerLink]="['/unidade/alterar', unidade.id]" title="" data-original-title="Alterar">
                   <i class="fa fa-pencil"></i>

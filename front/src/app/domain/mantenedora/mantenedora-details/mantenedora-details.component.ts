@@ -37,8 +37,14 @@ export class MantenedoraDetailsComponent implements OnInit {
       id: [],
       codigo: this.builder.control('', [Validators.required, Validators.maxLength(3)]),
       nome: this.builder.control('', [Validators.required, Validators.maxLength(80)]),
-      numeroFiscal: this.builder.control('', [Validators.required, Validators.maxLength(20)]),
-      endereco: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      bairro: this.builder.control('', [Validators.required, Validators.maxLength(20)]),
+      logradouro: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      numero: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      caixaPostal: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      pais: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      numeroFiscal: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      provincia: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      municipio: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
     }, {});
 
     // Desabilitar formulário para edição

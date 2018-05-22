@@ -19,18 +19,8 @@
 
             <!-- AQUI -->
             <tr>
-              <th>#ID</th>
-              <th>Mantenedora</th>
-              <th>Nome</th>
               <th>Código</th>
-              <th>Bairro</th>
-              <th>Logradouro</th>
-              <th>Número</th>
-              <th>Caixa Postal</th>
-              <th>País</th>
-              <th>Numero Fiscal</th>
-              <th>Provincia</th>
-              <th>Municipio</th>
+              <th>Nome</th>
               <th class="no-sort text-center">Ações</th>
             </tr>
 
@@ -39,18 +29,8 @@
 
             <!-- AQUI -->
             <tr *ngFor="let instituicao of instituicoes; let i = index">
-              <td>{{instituicao.id}}</td>
-              <td>{{instituicao.mantenedora}}</td>
-              <td><a [routerLink]="['/instituicao/visualizar', instituicao.id]">{{instituicao.nome}}</a></td>
               <td>{{instituicao.codigo}}</td>
-              <td>{{instituicao.bairro}}</td>
-              <td>{{instituicao.logradouro}}</td>
-              <td>{{instituicao.numero}}</td>
-              <td>{{instituicao.caixaPostal}}</td>
-              <td>{{instituicao.pais}}</td>
-              <td>{{instituicao.numeroFiscal}}</td>
-              <td>{{instituicao.provincia}}</td>
-              <td>{{instituicao.municipio}}</td>
+              <td><a [routerLink]="['/instituicao/visualizar', instituicao.id]">{{instituicao.nome}}</a></td>
               <td class="text-center">
                 <a class="btn btn-default" rel="tooltip" data-placement="top" [routerLink]="['/instituicao/alterar', instituicao.id]" title="" data-original-title="Alterar">
                   <i class="fa fa-pencil"></i>
@@ -67,8 +47,8 @@
         <ng-template #template>
           <div class="modal-body text-center">
             <p>Deseja realmente excluir a instituicao {{selectedInstituicao.nome}}</p>
-            <button type="button" class="btn btn-default" (click)="deleteInstituicao()">Yes</button>
-            <button type="button" class="btn btn-primary" (click)="hideModal()">No</button>
+            <button type="button" class="btn btn-default" (click)="deleteInstituicao()">Sim</button>
+            <button type="button" class="btn btn-primary" (click)="hideModal()">Não</button>
           </div>
         </ng-template>
 

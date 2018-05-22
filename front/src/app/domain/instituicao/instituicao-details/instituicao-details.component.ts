@@ -35,10 +35,17 @@ export class InstituicaoDetailsComponent implements OnInit {
     /* Reactive Forms */
     this.instituicaoForm = this.builder.group({
       id: [],
-      codigo: this.builder.control('', [Validators.required, Validators.maxLength(3)]),
+      mantenedora: this.builder.control('', [Validators.required, Validators.maxLength(80)]),
       nome: this.builder.control('', [Validators.required, Validators.maxLength(80)]),
-      numeroFiscal: this.builder.control('', [Validators.required, Validators.maxLength(20)]),
-      endereco: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      codigo: this.builder.control('', [Validators.required, Validators.maxLength(3)]),
+      bairro: this.builder.control('', [Validators.required, Validators.maxLength(20)]),
+      logradouro: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      numero: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      caixaPostal: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      pais: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      numeroFiscal: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      provincia: this.builder.control('', [Validators.required, Validators.maxLength(50)]),
+      municipio: this.builder.control('', [Validators.required, Validators.maxLength(80)]),
     }, {});
 
     // Desabilitar formulário para edição
