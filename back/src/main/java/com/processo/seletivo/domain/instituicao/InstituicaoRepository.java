@@ -10,5 +10,5 @@ public interface InstituicaoRepository extends JpaRepository<Instituicao, Long> 
 
     public List<Instituicao> findByNomeOrCodigo(String nome, String codigo);
 
-    public List<Instituicao> findByIdAndNomeOrCodigo(long id, String nome, String codigo);
+    public List<Instituicao> findByIdNot(long id);
 }

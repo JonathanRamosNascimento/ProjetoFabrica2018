@@ -18,7 +18,7 @@ public class UnidadeService extends AbstractService<Unidade> {
             if(unidadeRepository.findByNomeOrCodigo(unidade.getNome(), unidade.getCodigo()).isEmpty()){
                 return unidadeRepository.save(unidade);
             }
-        }else if(unidadeRepository.findByIdAndNomeOrCodigo(unidade.getId(), unidade.getNome(), unidade.getCodigo()).isEmpty()){
+        }else if(unidadeRepository.findByIdNot(unidade.getId()).isEmpty()){
             return unidadeRepository.save(unidade);
         }
         throw new CustomDuplicatedException(ExceptionMessageCode.MENSAGEM_REGISTRO_DUPLICADO);

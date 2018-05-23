@@ -1,5 +1,6 @@
 package com.processo.seletivo.domain.mantedora;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.processo.seletivo.domain.instituicao.Instituicao;
 import lombok.Getter;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@JsonIgnoreProperties({"instituicoes"})
 public class Mantenedora implements Serializable{
 
     private static final long serialVersionUID = 1L;
@@ -32,7 +34,7 @@ public class Mantenedora implements Serializable{
 
     @NotEmpty
     @Size(max = 10)
-    @Column(name = "codigo", updatable = false)
+    @Column(name = "codigo")
     @Getter
     @Setter
     private String codigo;

@@ -6,6 +6,7 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 
@@ -22,8 +23,11 @@ public class Unidade implements Serializable {
     @Setter
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "instituicao_id_seq")
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "instituicao_id_seq", referencedColumnName = "id")
+    @Getter
+    @Setter
     private Instituicao instituicao;
 
     @NotEmpty
@@ -35,7 +39,7 @@ public class Unidade implements Serializable {
 
     @NotEmpty
     @Size(max = 10)
-    @Column(name = "codigo", updatable = false)
+    @Column(name = "codigo")
     @Getter
     @Setter
     private String codigo;

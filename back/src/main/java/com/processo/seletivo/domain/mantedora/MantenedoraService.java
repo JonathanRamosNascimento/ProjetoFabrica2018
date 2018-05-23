@@ -18,7 +18,7 @@ public class MantenedoraService extends AbstractService<Mantenedora> {
             if(mantenedoraRepository.findByNomeOrCodigo(mantenedora.getNome(), mantenedora.getCodigo()).isEmpty()){
                 return mantenedoraRepository.save(mantenedora);
             }
-        }else if(mantenedoraRepository.findByIdAndNomeOrCodigo(mantenedora.getId(), mantenedora.getNome(), mantenedora.getCodigo()).isEmpty()){
+        }else if(mantenedoraRepository.findByIdNot(mantenedora.getId()).isEmpty()){
             return mantenedoraRepository.save(mantenedora);
         }
         throw new CustomDuplicatedException(ExceptionMessageCode.MENSAGEM_REGISTRO_DUPLICADO);

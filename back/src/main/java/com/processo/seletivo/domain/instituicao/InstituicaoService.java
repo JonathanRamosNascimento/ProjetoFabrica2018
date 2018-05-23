@@ -18,7 +18,7 @@ public class InstituicaoService extends AbstractService<Instituicao> {
             if(instituicaoRepository.findByNomeOrCodigo(instituicao.getNome(), instituicao.getCodigo()).isEmpty()){
                 return instituicaoRepository.save(instituicao);
             }
-        }else if(instituicaoRepository.findByIdAndNomeOrCodigo(instituicao.getId(), instituicao.getNome(), instituicao.getCodigo()).isEmpty()){
+        }else if(instituicaoRepository.findByIdNot(instituicao.getId()).isEmpty()){
             return instituicaoRepository.save(instituicao);
         }
         throw new CustomDuplicatedException(ExceptionMessageCode.MENSAGEM_REGISTRO_DUPLICADO);

@@ -5,11 +5,13 @@
 
       <div class="row">
 
-          <div class="col-xs-6">
-            <input-container label="Instituição">
-            <input type="text" class="form-control" placeholder="Instituição" formControlName="instituicao" autocomplete="off">
-            </input-container>
-          </div>
+        <div class="col-xs-6">
+          <input-container label="Instituicao"><br>
+          <select formControlName="instituicao" class="form-control" [compareWith]="compareFn">
+            <option  *ngFor="let i of instituicoes" [ngValue]="i">{{ i.codigo }}</option>
+          </select>
+        </input-container>
+        </div>
 
         <div class="col-xs-6">
           <input-container label="Nome">

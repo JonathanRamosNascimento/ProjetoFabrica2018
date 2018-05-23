@@ -1,5 +1,6 @@
 package com.processo.seletivo.domain.instituicao;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.processo.seletivo.domain.mantedora.Mantenedora;
 import com.processo.seletivo.domain.unidade.Unidade;
 import lombok.Getter;
@@ -7,11 +8,13 @@ import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@JsonIgnoreProperties({"unidades"})
 public class Instituicao implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -24,8 +27,11 @@ public class Instituicao implements Serializable {
     @Setter
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "mantenedora_id_seq")
+    @NotNull
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "mantenedora_id_seq", referencedColumnName = "id")
+    @Getter
+    @Setter
     private Mantenedora mantenedora;
 
     @NotEmpty
@@ -37,7 +43,7 @@ public class Instituicao implements Serializable {
 
     @NotEmpty
     @Size(max = 10)
-    @Column(name = "codigo", updatable = false)
+    @Column(name = "codigo")
     @Getter
     @Setter
     private String codigo;
